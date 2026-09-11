@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartLink Phone Hub - Vente de Smartphones & Vendeurs Partenaires</title>
+  <meta name="description" content="Plateforme officielle SmartLink : Achetez vos smartphones neufs, reconditionnés et occasions certifiées au Togo et en Afrique. Contact direct et commande sur WhatsApp au +228 93488402." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-teal-500 selection:text-white flex flex-col min-h-screen">
+
+  <!-- TOP BAR -->
+  <aside aria-label="Bandeau d'information" class="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 text-white text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2 border-b border-teal-900/40">
+    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+    <span>Boutique officielle SmartLink · Vendeurs partenaires vérifiés · Service client WhatsApp : 
+      <a href="https://wa.me/22893488402" target="_blank" rel="noopener noreferrer" class="font-bold underline text-emerald-400 hover:text-emerald-300 ml-1">
+        +228 93 48 84 02
+      </a>
+    </span>
+  </aside>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 w-full glass border-b border-slate-200/80 transition-all shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-emerald-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
+          S
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-xl tracking-tight text-slate-900">SmartLink</span>
+            <span class="text-[10px] bg-teal-100 text-teal-800 font-extrabold px-1.5 py-0.5 rounded tracking-wide">HUB</span>
+          </div>
+          <span class="text-[11px] text-slate-600 font-semibold block -mt-1">Smartphones & Partenaires</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+        <a href="#catalogue" class="hover:text-teal-600 transition">Catalogue</a>
+        <a href="#marques" class="hover:text-teal-600 transition">Marques</a>
+        <a href="#comment-ca-marche" class="hover:text-teal-600 transition">Comment ça marche</a>
+        <a href="#confiance" class="hover:text-teal-600 transition">Garanties</a>
+        <a href="#contact" class="hover:text-teal-600 transition">Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="toggleFavoritesModal()" class="relative p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition" title="Mes favoris">
+          <i data-lucide="heart" class="w-5 h-5"></i>
+          <span id="favCountBadge" class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+        </button>
+
+        <button onclick="openCompareModal()" id="compareBtnTop" class="relative p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition hidden md:flex items-center gap-1 text-xs font-bold" title="Comparer des modèles">
+          <i data-lucide="sliders-horizontal" class="w-4 h-4 text-teal-600"></i>
+          <span>Comparer (<span id="compareCount">0</span>)</span>
+        </button>
+
+        <button onclick="openAdminModal()" class="p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition" title="Ajouter un smartphone">
+          <i data-lucide="plus-circle" class="w-5 h-5 text-teal-600"></i>
+        </button>
+
+        <a href="https://wa.me/22893488402?text=Bonjour%20SmartLink,%20je%20souhaite%20des%20renseignements%20sur%20les%20smartphones%20disponibles." 
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md transition-all active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">WhatsApp</span>
+          <span class="text-xs opacity-90 hidden lg:inline">(+228 93 48 84 02)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden pt-10 pb-14 lg:pt-16 lg:pb-20 bg-gradient-to-b from-teal-50/60 via-white to-slate-50 border-b border-slate-200/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100/90 text-teal-900 text-xs font-bold uppercase tracking-wider">
+            <i data-lucide="shield-check" class="w-4 h-4 text-teal-700"></i>
+            Stock disponible à Lomé & Sous-Région
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
+            Trouvez votre smartphone au <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-800">meilleur prix</span> garanti.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+            iPhone, Samsung Galaxy, Xiaomi, Tecno neufs et occasions certifiées. Commandez directement auprès de vendeurs vérifiés avec assistance WhatsApp au <strong class="text-slate-800 font-bold">+228 93 48 84 02</strong>.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+            <a href="#catalogue" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg transition-all active:scale-95">
+              <i data-lucide="shopping-bag" class="w-5 h-5 text-teal-400"></i>
+              <span>Explorer le catalogue (<span id="heroTotalCount">12</span>)</span>
+            </a>
+
+            <a href="https://wa.me/22893488402?text=Bonjour%20SmartLink,%20je%20cherche%20un%20smartphone%20selon%20mon%20budget." 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition-all active:scale-95">
+              <i data-lucide="message-square" class="w-5 h-5"></i>
+              <span>Demander conseil (+228 93 48 84 02)</span>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200/80 text-left max-w-lg mx-auto lg:mx-0">
+            <div>
+              <p class="font-black text-slate-900 text-xl sm:text-2xl">100%</p>
+              <p class="text-xs text-slate-600 font-medium">Testé & Audité</p>
+            </div>
+            <div>
+              <p class="font-black text-slate-900 text-xl sm:text-2xl">Direct</p>
+              <p class="text-xs text-slate-600 font-medium">Prix Vendeur</p>
+            </div>
+            <div>
+              <p class="font-black text-slate-900 text-xl sm:text-2xl">7j / 7</p>
+              <p class="text-xs text-slate-600 font-medium">WhatsApp Dédié</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md bg-white rounded-3xl p-6 shadow-2xl shadow-slate-200/80 border border-slate-100 group">
+            <div class="absolute -top-3 right-6 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+              ★ Coup de cœur
+            </div>
+            
+            <div class="relative aspect-square rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 overflow-hidden mb-5">
+              <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&auto=format&fit=crop&q=80" 
+                   alt="iPhone 15 Pro" 
+                   class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                   onerror="handleImageFallback(this, 'Apple', 'iPhone 15 Pro')" />
+              <div class="absolute bottom-3 left-3 bg-slate-900/85 backdrop-blur text-white text-xs px-2.5 py-1 rounded-lg font-bold flex items-center gap-1.5">
+                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>Batterie 100% (Neuf)</span>
+              </div>
+            </div>
+
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-wider">Apple</span>
+                <h3 class="text-xl font-black text-slate-900">iPhone 15 Pro 128 Go</h3>
+                <p class="text-xs text-slate-600 mt-0.5">Titane naturel · Puce A17 Pro · Garanti</p>
+              </div>
+              <div class="text-right">
+                <span class="text-2xl font-black text-slate-900">285 000</span>
+                <span class="text-xs font-bold text-teal-600 block">FCFA</span>
+              </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-2 gap-2">
+              <button onclick="openProductModal('6aa2ec51b6a40159fc488a7a')" class="w-full flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 py-3 rounded-xl font-bold text-xs transition">
+                <i data-lucide="eye" class="w-4 h-4"></i>
+                <span>Voir fiche</span>
+              </button>
+              <a href="https://wa.me/22893488402?text=Bonjour%20SmartLink,%20je%20souhaite%20commander%20l'iPhone%2015%20Pro%20(128%20Go,%20Neuf)%20au%20prix%20de%20285%20000%20FCFA." 
+                 target="_blank" rel="noopener noreferrer"
+                 class="w-full flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white py-3 rounded-xl font-bold text-xs shadow transition active:scale-95">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS SECTION -->
+  <section id="marques" class="py-10 bg-white border-b border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-teal-600">Nos Fabricants</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">Parcourez par Marque</h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 sm:mt-0 font-medium">Cliquez sur une marque pour filtrer automatiquement</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3" id="brandsContainer"></div>
+    </div>
+  </section>
+
+  <!-- CATALOGUE & FILTERING SECTION -->
+  <section id="catalogue" class="py-12 bg-slate-50 flex-1">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Top Filters -->
+      <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-sm mb-8 space-y-4">
+        <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+          <div class="relative flex-1 max-w-lg">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3.5 text-slate-600"></i>
+            <input type="text" id="searchInput" placeholder="Rechercher (ex: iPhone 14, Galaxy, 128 Go, Neuf...)" 
+                   oninput="applyFilters()" 
+                   class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm bg-slate-50/50" />
+            <button onclick="clearSearch()" id="clearSearchBtn" class="absolute right-3 top-3 text-slate-600 hover:text-slate-600 hidden">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="text-xs font-bold text-slate-600 mr-1">État :</span>
+            <button onclick="filterByCondition('all')" class="condition-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-sm" data-condition="all">Tous</button>
+            <button onclick="filterByCondition('Neuf')" class="condition-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-condition="Neuf">Neuf</button>
+            <button onclick="filterByCondition('Reconditionné')" class="condition-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-condition="Reconditionné">Reconditionné</button>
+            <button onclick="filterByCondition('Occasion')" class="condition-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-condition="Occasion">Occasion certifiée</button>
+          </div>
+
+          <div class="flex items-center gap-2 self-start lg:self-auto">
+            <span class="text-xs font-bold text-slate-600">Trier :</span>
+            <select id="sortSelect" onchange="applyFilters()" class="text-xs font-bold py-2 px-3 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-teal-500">
+              <option value="featured">★ En vedette d'abord</option>
+              <option value="price-asc">Prix croissant (Moins cher)</option>
+              <option value="price-desc">Prix décroissant (Haut de gamme)</option>
+              <option value="brand">Par marque A-Z</option>
+              <option value="name">Par modèle A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="font-bold text-slate-600">Stockage :</span>
+            <button onclick="filterByStorage('all')" class="storage-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-teal-600 text-white" data-storage="all">Tous</button>
+            <button onclick="filterByStorage('64 Go')" class="storage-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200" data-storage="64 Go">64 Go</button>
+            <button onclick="filterByStorage('128 Go')" class="storage-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200" data-storage="128 Go">128 Go</button>
+            <button onclick="filterByStorage('256 Go')" class="storage-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200" data-storage="256 Go">256 Go</button>
+            <button onclick="filterByStorage('512 Go')" class="storage-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200" data-storage="512 Go">512 Go+</button>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span id="resultsCount" class="font-bold text-slate-900 bg-slate-100 px-3 py-1 rounded-lg">12 smartphones trouvés</span>
+            <button onclick="resetFilters()" class="text-teal-600 hover:text-teal-800 font-bold hover:underline flex items-center gap-1">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+              <span>Réinitialiser</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+
+      <!-- No Results -->
+      <div id="noResults" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+        <div class="w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="smartphone" class="w-8 h-8"></i>
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900">Aucun smartphone ne correspond à votre filtre</h3>
+        <p class="text-sm text-slate-600 mt-2 max-w-md mx-auto">
+          Nos partenaires disposent régulièrement de nouveaux modèles non encore listés. Demandez directement la disponibilité sur WhatsApp.
+        </p>
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          <button onclick="resetFilters()" class="px-5 py-2.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl transition">
+            Réinitialiser les filtres
+          </button>
+          <a href="https://wa.me/22893488402?text=Bonjour%20SmartLink,%20je%20recherche%20un%20modèle%20de%20smartphone%20précis%20non%20trouvé%20sur%20votre%20site." 
+             target="_blank" rel="noopener noreferrer"
+             class="px-5 py-2.5 text-xs font-bold bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl flex items-center gap-2 shadow transition active:scale-95">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Demander sur WhatsApp (+228 93 48 84 02)</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="comment-ca-marche" class="py-16 bg-white border-t border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-teal-600">Processus Transparent</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-1">Comment acheter sur SmartLink ?</h2>
+        <p class="text-slate-600 text-sm mt-2">Un parcours d'achat sécurisé et direct en 4 étapes simples.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/70 hover:border-teal-400 transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center mb-4 text-base shadow-md">01</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Choisissez votre modèle</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Consultez les photos réelles, l'état d'usure, la capacité de stockage et le prix clair en FCFA.</p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/70 hover:border-teal-400 transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center mb-4 text-base shadow-md">02</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Contact WhatsApp direct</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Cliquez sur le bouton. Un message pré-rempli s'ouvre sur WhatsApp au <strong class="text-slate-800">+228 93 48 84 02</strong> avec la référence.</p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/70 hover:border-teal-400 transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center mb-4 text-base shadow-md">03</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Confirmation & Rendez-vous</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Échangez avec le vendeur pour poser vos questions, valider les accessoires et convenir du lieu de remise.</p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200/70 hover:border-teal-400 transition">
+          <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-black flex items-center justify-center mb-4 text-base shadow-md">04</div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Testez avant de payer</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Vérifiez l'écran, les caméras, Face ID et l'autonomie en direct avant de finaliser votre achat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="confiance" class="py-16 bg-slate-50 border-t border-slate-200/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-teal-600">Sécurité & Qualité</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-1">Pourquoi choisir SmartLink ?</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4"><i data-lucide="badge-check" class="w-6 h-6"></i></div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Vendeurs Audités</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Chaque vendeur partenaire est vérifié pour garantir la provenance et l'état des appareils.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4"><i data-lucide="message-square" class="w-6 h-6"></i></div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">WhatsApp Direct</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Communication directe au +228 93 48 84 02 sans commission cachée.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4"><i data-lucide="tag" class="w-6 h-6"></i></div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Prix Justes en FCFA</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Tarifs clairs et compétitifs, du haut de gamme neuf aux modèles abordables d'occasion.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+          <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4"><i data-lucide="shield" class="w-6 h-6"></i></div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Retrait Sécurisé</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Rencontre physique en boutique ou livraison sécurisée à Lomé pour inspecter le smartphone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECT CONTACT -->
+  <section id="contact" class="py-16 bg-white border-t border-slate-200/70">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-b from-slate-50 to-white p-8 sm:p-12 rounded-3xl border border-slate-200/80 shadow-md text-center">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="phone-call" class="w-7 h-7"></i>
+        </div>
+        <h2 class="text-3xl font-black text-slate-900">Contactez SmartLink Hub</h2>
+        <p class="text-slate-600 text-sm mt-2 max-w-md mx-auto">
+          Posez votre question ci-dessous : votre message sera immédiatement transmis sur notre WhatsApp officiel au <strong class="text-slate-900">+228 93 48 84 02</strong>.
+        </p>
+
+        <div class="mt-8 max-w-lg mx-auto space-y-4 text-left">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Votre nom (facultatif) :</label>
+            <input type="text" id="contactName" placeholder="Ex: Jean K." class="w-full p-3 text-sm rounded-xl border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Votre message ou demande de modèle :</label>
+            <textarea id="contactMessage" rows="3" class="w-full p-3.5 text-sm rounded-xl border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:outline-none" placeholder="Ex: Bonjour, je cherche un iPhone 13 Pro 128 Go ou un Galaxy S22 avec un budget d'environ 200 000 FCFA."></textarea>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <button onclick="sendCustomWhatsApp()" class="flex-1 inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-6 rounded-xl font-bold text-sm shadow-md transition active:scale-95">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Envoyer sur WhatsApp (+228 93 48 84 02)</span>
+            </button>
+            <a href="tel:+22893488402" class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 py-3.5 px-6 rounded-xl font-bold text-sm transition">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <span>Appeler</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-teal-500 flex items-center justify-center text-white font-black text-base">S</div>
+            <span class="font-black text-white text-lg">SmartLink Hub</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">Plateforme de mise en relation directe avec les vendeurs certifiés de smartphones au Togo.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="#catalogue" class="hover:text-teal-400">Tous les smartphones</a></li>
+            <li><a href="#marques" class="hover:text-teal-400">Marques partenaires</a></li>
+            <li><a href="#comment-ca-marche" class="hover:text-teal-400">Guide d'achat</a></li>
+            <li><a href="#contact" class="hover:text-teal-400">Contact direct</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">Marques</h4>
+          <ul class="space-y-2">
+            <li><button onclick="filterByBrand('Apple')" class="hover:text-teal-400 text-left">Apple (iPhone)</button></li>
+            <li><button onclick="filterByBrand('Samsung')" class="hover:text-teal-400 text-left">Samsung Galaxy</button></li>
+            <li><button onclick="filterByBrand('Xiaomi')" class="hover:text-teal-400 text-left">Xiaomi & Redmi</button></li>
+            <li><button onclick="filterByBrand('Tecno')" class="hover:text-teal-400 text-left">Tecno Mobile</button></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider text-xs mb-3">WhatsApp Officiel</h4>
+          <p class="text-slate-300 font-bold mb-1">WhatsApp : <a href="https://wa.me/22893488402" class="text-emerald-400 hover:underline">+228 93 48 84 02</a></p>
+          <p class="text-slate-400 mb-2">Disponibilité : 7 jours sur 7</p>
+          <span class="inline-block bg-teal-900/60 text-teal-300 px-2.5 py-1 rounded text-[10px] font-bold">Vendeurs vérifiés SmartLink</span>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500">
+        <p>© 2026 SmartLink Phone Hub. Tous droits réservés.</p>
+        <p>Lomé, Togo · Site web & application autonome</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/22893488402?text=Bonjour%20SmartLink,%20je%20souhaite%20commander%20un%20smartphone." 
+     target="_blank" rel="noopener noreferrer"
+     class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20ba59] text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 transition-transform duration-300 hover:scale-105 active:scale-95"
+     title="Discuter sur WhatsApp au +228 93 48 84 02">
+    <div class="relative">
+      <i data-lucide="message-circle" class="w-6 h-6"></i>
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-white rounded-full animate-ping"></span>
+    </div>
+    <span class="hidden sm:inline font-black text-xs tracking-wide">WhatsApp (+228 93 48 84 02)</span>
+  </a>
+
+  <!-- MODAL: PRODUCT DETAILS -->
+  <div id="productDetailModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-100 my-8 max-h-[90vh] flex flex-col">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <div class="flex items-center gap-2">
+          <span id="modalBrandTag" class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Apple</span>
+          <span id="modalConditionTag" class="text-xs font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Neuf</span>
+        </div>
+        <button onclick="closeProductModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-6 flex-1">
+        <div class="grid sm:grid-cols-2 gap-6 items-center">
+          <div class="aspect-square bg-slate-100 rounded-2xl overflow-hidden relative border border-slate-200/80">
+            <img id="modalProductImg" src="" alt="" class="w-full h-full object-cover" />
+            <div id="modalStorageBadge" class="absolute bottom-2.5 right-2.5 bg-slate-900/90 text-white text-xs px-2.5 py-1 rounded-lg font-bold">128 Go</div>
+          </div>
+
+          <div class="space-y-3">
+            <h2 id="modalProductTitle" class="text-2xl font-black text-slate-900 leading-tight">iPhone 14 Pro</h2>
+            <div class="pt-1">
+              <span class="text-xs text-slate-600 font-medium block">Prix au comptant</span>
+              <div class="flex items-baseline gap-2">
+                <span id="modalProductPrice" class="text-3xl font-black text-slate-900">275 000 FCFA</span>
+                <span id="modalProductOldPrice" class="text-sm line-through text-slate-600 hidden">310 000 FCFA</span>
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-100">
+              <span class="text-xs text-slate-600 block">Vendeur responsable :</span>
+              <span id="modalSellerName" class="text-xs font-bold text-slate-800">Vendeur partenaire (Vérifié)</span>
+            </div>
+            <div class="flex items-center gap-2 pt-1">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span id="modalAvailability" class="text-xs font-bold text-emerald-700">En stock immédiatement à Lomé</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-slate-600 mb-3">Fiche Technique & Caractéristiques</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span class="text-slate-600 block text-[10px]">Stockage</span><span id="modalSpecStorage" class="font-bold text-slate-900">128 Go</span></div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span class="text-slate-600 block text-[10px]">Mémoire RAM</span><span id="modalSpecRam" class="font-bold text-slate-900">6 Go</span></div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span class="text-slate-600 block text-[10px]">Type SIM</span><span id="modalSpecSim" class="font-bold text-slate-900">SIM physique</span></div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span class="text-slate-600 block text-[10px]">Santé Batterie</span><span id="modalSpecBattery" class="font-bold text-slate-900">100%</span></div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span class="text-slate-600 block text-[10px]">Origine</span><span id="modalSpecOrigin" class="font-bold text-slate-900">USA / Europe</span></div>
+            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100"><span class="text-slate-600 block text-[10px]">Garantie</span><span class="font-bold text-emerald-700">Vérifié SmartLink</span></div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-slate-600 mb-1.5">Description & Détails</h4>
+          <p id="modalDescription" class="text-xs text-slate-600 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-100"></p>
+        </div>
+      </div>
+
+      <div class="p-5 border-t border-slate-100 bg-slate-50 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <button onclick="shareCurrentProduct()" class="w-full sm:w-auto px-4 py-3 rounded-xl border border-slate-200 text-slate-700 text-xs font-bold hover:bg-slate-100 flex items-center justify-center gap-2">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+          <span>Partager</span>
+        </button>
+        <a id="modalWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer" 
+           class="w-full sm:flex-1 bg-[#25D366] hover:bg-[#20ba59] text-white py-3 px-6 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 transition active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Commander sur WhatsApp (+228 93 48 84 02)</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: COMPARATOR -->
+  <div id="compareModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl border border-slate-100 my-8 max-h-[90vh] flex flex-col">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <div>
+          <h3 class="font-black text-slate-900 text-lg">Comparateur de Smartphones</h3>
+          <p class="text-xs text-slate-600">Comparez jusqu'à 3 modèles côte à côte</p>
+        </div>
+        <button onclick="closeCompareModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto flex-1" id="compareContent"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: FAVORITES -->
+  <div id="favoritesModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-slate-100 my-8 max-h-[85vh] flex flex-col">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <div>
+          <h3 class="font-black text-slate-900 text-lg flex items-center gap-2">
+            <i data-lucide="heart" class="w-5 h-5 text-rose-500 fill-rose-500"></i>
+            <span>Mes Favoris</span>
+          </h3>
+          <p class="text-xs text-slate-600">Smartphones enregistrés</p>
+        </div>
+        <button onclick="toggleFavoritesModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <div class="p-5 overflow-y-auto flex-1 space-y-3" id="favoritesList"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADMIN / ADD SMARTPHONE -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 my-8 flex flex-col">
+      <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <div>
+          <h3 class="font-black text-slate-900 text-lg">Ajouter un Smartphone</h3>
+          <p class="text-xs text-slate-600">Enregistrer un nouvel appareil au catalogue local</p>
+        </div>
+        <button onclick="closeAdminModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-100">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form id="addProductForm" onsubmit="handleAddNewProduct(event)" class="p-5 space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Modèle :</label>
+          <input type="text" id="newModel" required placeholder="Ex: iPhone 13 Pro Max" class="w-full p-2.5 rounded-xl border border-slate-200" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Marque :</label>
+            <select id="newBrand" class="w-full p-2.5 rounded-xl border border-slate-200 bg-white">
+              <option value="Apple">Apple</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Xiaomi">Xiaomi</option>
+              <option value="Tecno">Tecno</option>
+              <option value="Google">Google</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Prix (FCFA) :</label>
+            <input type="number" id="newPrice" required placeholder="250000" class="w-full p-2.5 rounded-xl border border-slate-200" />
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Stockage :</label>
+            <select id="newStorage" class="w-full p-2.5 rounded-xl border border-slate-200 bg-white">
+              <option value="64 Go">64 Go</option>
+              <option value="128 Go" selected>128 Go</option>
+              <option value="256 Go">256 Go</option>
+              <option value="512 Go">512 Go</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">État :</label>
+            <select id="newCondition" class="w-full p-2.5 rounded-xl border border-slate-200 bg-white">
+              <option value="Neuf">Neuf</option>
+              <option value="Reconditionné">Reconditionné</option>
+              <option value="Occasion">Occasion certifiée</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">URL de l'image (optionnel) :</label>
+          <input type="url" id="newImage" placeholder="https://images.unsplash.com/..." class="w-full p-2.5 rounded-xl border border-slate-200" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Description :</label>
+          <textarea id="newDescription" rows="2" placeholder="Informations clés (batterie, accessoires...)" class="w-full p-2.5 rounded-xl border border-slate-200"></textarea>
+        </div>
+        <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
+          <button type="button" onclick="closeAdminModal()" class="px-4 py-2 rounded-xl text-slate-700 hover:bg-slate-100">Annuler</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold">Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300">
+    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toastMsg">Action effectuée</span>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const WHATSAPP_NUMBER = "22893488402";
+
+    const brandsList = [
+      { id: "all", name: "Toutes", count: 0 },
+      { id: "Apple", name: "Apple", count: 0 },
+      { id: "Samsung", name: "Samsung", count: 0 },
+      { id: "Xiaomi", name: "Xiaomi", count: 0 },
+      { id: "Tecno", name: "Tecno", count: 0 },
+      { id: "Google", name: "Google", count: 0 }
+    ];
+
+    const defaultCatalog = [
+      {
+        id: "6aa2ec51b6a40159fc488a77",
+        model: "iPhone 14 Pro",
+        brand: "Apple",
+        price: 275000,
+        oldPrice: 305000,
+        storage: "128 Go",
+        ram: "6 Go",
+        condition: "Neuf",
+        simType: "SIM physique",
+        origin: "USA / Europe",
+        batteryHealth: "100%",
+        featured: true,
+        image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=800&auto=format&fit=crop&q=80",
+        description: "iPhone 14 Pro neuf sous blister ou certifié, Dynamic Island, écran 120Hz ProMotion et capteur photo 48 MP.",
+        sellerName: "Vendeur partenaire 1",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "6aa2ec51b6a40159fc488a79",
+        model: "iPhone 14 Pro Max",
+        brand: "Apple",
+        price: 285000,
+        oldPrice: 320000,
+        storage: "128 Go",
+        ram: "6 Go",
+        condition: "Neuf",
+        simType: "eSIM",
+        origin: "USA",
+        batteryHealth: "Batterie d'origine, non boostée",
+        featured: true,
+        image: "https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?w=800&auto=format&fit=crop&q=80",
+        description: "Modèle grand format 6.7 pouces ultra performant, autonomie exceptionnelle et processeur A16 Bionic.",
+        sellerName: "Vendeur partenaire 1",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "6aa2ec51b6a40159fc488a7a",
+        model: "iPhone 15 Pro",
+        brand: "Apple",
+        price: 285000,
+        oldPrice: 310000,
+        storage: "128 Go",
+        ram: "8 Go",
+        condition: "Neuf",
+        simType: "eSIM",
+        origin: "USA",
+        batteryHealth: "100%",
+        featured: true,
+        image: "https://images.unsplash.com/photo-1695048065036-0568019a27e7?w=800&auto=format&fit=crop&q=80",
+        description: "Châssis en titane brossé ultra léger, processeur A17 Pro gravé en 3nm, port USB-C et bouton Action programmable.",
+        sellerName: "Vendeur partenaire 1",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "6aa2ec51b6a40159fc488a7a-13p",
+        model: "iPhone 13 Pro",
+        brand: "Apple",
+        price: 245000,
+        oldPrice: 265000,
+        storage: "128 Go",
+        ram: "6 Go",
+        condition: "Reconditionné",
+        simType: "SIM physique",
+        origin: "Europe",
+        batteryHealth: "89%",
+        featured: true,
+        image: "https://images.unsplash.com/photo-1632661674596-df8be070a5c5?w=800&auto=format&fit=crop&q=80",
+        description: "Triple objectif photo avec téléobjectif 3x, finition acier inoxydable chirurgical et écran Super Retina XDR 120Hz.",
+        sellerName: "Vendeur partenaire 2",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "prod-samsung-s23u",
+        model: "Samsung Galaxy S23 Ultra",
+        brand: "Samsung",
+        price: 420000,
+        oldPrice: 460000,
+        storage: "256 Go",
+        ram: "12 Go",
+        condition: "Neuf",
+        simType: "Double SIM (Nano + eSIM)",
+        origin: "Europe",
+        batteryHealth: "100% (5000 mAh)",
+        featured: true,
+        image: "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=800&auto=format&fit=crop&q=80",
+        description: "Monstre de puissance avec stylet S-Pen intégré, capteur photo 200 MP, zoom 100x Space Zoom et Snapdragon 8 Gen 2.",
+        sellerName: "Vendeur partenaire 2",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "prod-samsung-a54",
+        model: "Samsung Galaxy A54 5G",
+        brand: "Samsung",
+        price: 160000,
+        oldPrice: 180000,
+        storage: "128 Go",
+        ram: "8 Go",
+        condition: "Neuf",
+        simType: "Double SIM",
+        origin: "Officiel",
+        batteryHealth: "100%",
+        featured: false,
+        image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&auto=format&fit=crop&q=80",
+        description: "Écran Super AMOLED 120Hz éclatant, autonomie 2 jours, étanchéité IP67 et design façon série S.",
+        sellerName: "Vendeur partenaire 3",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "6aa2ec51b6a40159fc488a7d",
+        model: "Galaxy S21 Ultra",
+        brand: "Samsung",
+        price: 120000,
+        oldPrice: 150000,
+        storage: "128 Go",
+        ram: "12 Go",
+        condition: "Occasion",
+        simType: "Double SIM",
+        origin: "Europe",
+        batteryHealth: "88%",
+        featured: false,
+        image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+        description: "Écran Dynamic AMOLED 120Hz. Tout fonctionne parfaitement (tactile, caméras, empreinte).",
+        sellerName: "Vendeur partenaire 2",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "6aa2ec51b6a40159fc488a71",
+        model: "iPhone 11",
+        brand: "Apple",
+        price: 95000,
+        oldPrice: 110000,
+        storage: "64 Go",
+        ram: "4 Go",
+        condition: "Neuf",
+        simType: "SIM physique",
+        origin: "USA",
+        batteryHealth: "100%",
+        featured: false,
+        image: "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800&auto=format&fit=crop&q=80",
+        description: "iPhone 11 classique sous blister, double appareil photo grand-angle, Face ID ultra réactif.",
+        sellerName: "Vendeur partenaire 1",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "6aa2ec51b6a40159fc488a72",
+        model: "iPhone 11",
+        brand: "Apple",
+        price: 115000,
+        oldPrice: 130000,
+        storage: "128 Go",
+        ram: "4 Go",
+        condition: "Neuf",
+        simType: "SIM physique",
+        origin: "USA",
+        batteryHealth: "100%",
+        featured: false,
+        image: "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=800&auto=format&fit=crop&q=80",
+        description: "Version 128 Go pour plus de confort de stockage pour vos photos, vidéos et applications.",
+        sellerName: "Vendeur partenaire 1",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "prod-xiaomi-note13",
+        model: "Xiaomi Redmi Note 13 Pro",
+        brand: "Xiaomi",
+        price: 145000,
+        oldPrice: 165000,
+        storage: "256 Go",
+        ram: "8 Go",
+        condition: "Neuf",
+        simType: "Double SIM",
+        origin: "Global Version",
+        batteryHealth: "100%",
+        featured: true,
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80",
+        description: "Appareil photo 200 MP avec stabilisation optique OIS, charge ultra rapide 67W et grand écran AMOLED 120Hz.",
+        sellerName: "Vendeur partenaire 2",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "prod-tecno-camon20",
+        model: "Tecno Camon 20 Pro 5G",
+        brand: "Tecno",
+        price: 130000,
+        oldPrice: 145000,
+        storage: "256 Go",
+        ram: "8 Go",
+        condition: "Neuf",
+        simType: "Double SIM",
+        origin: "Officiel",
+        batteryHealth: "100%",
+        featured: false,
+        image: "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=800&auto=format&fit=crop&q=80",
+        description: "Puce MediaTek Dimensity 8050 véloce, design cuir géométrique premium et écran fluide 120Hz.",
+        sellerName: "Vendeur partenaire 1",
+        availability: "En stock (Lomé)"
+      },
+      {
+        id: "prod-google-pixel7p",
+        model: "Google Pixel 7 Pro",
+        brand: "Google",
+        price: 260000,
+        oldPrice: 290000,
+        storage: "128 Go",
+        ram: "12 Go",
+        condition: "Reconditionné",
+        simType: "SIM + eSIM",
+        origin: "USA",
+        batteryHealth: "92%",
+        featured: false,
+        image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=800&auto=format&fit=crop&q=80",
+        description: "L'intelligence artificielle de Google, les meilleures photos de nuit, Android pur.",
+        sellerName: "Vendeur partenaire 2",
+        availability: "En stock (Lomé)"
+      }
+    ];
+
+    let products = [];
+    try {
+      const saved = localStorage.getItem("smartlink_catalog_v2");
+      products = saved ? JSON.parse(saved) : defaultCatalog;
+    } catch(e) {
+      products = defaultCatalog;
+    }
+
+    let favorites = [];
+    try {
+      favorites = JSON.parse(localStorage.getItem("smartlink_favs") || "[]");
+    } catch(e) {
+      favorites = [];
+    }
+
+    let compareList = [];
+    let currentBrand = "all";
+    let currentCondition = "all";
+    let currentStorage = "all";
+    let currentSelectedProduct = null;
+
+    function formatPrice(val) {
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " FCFA";
+    }
+
+    function handleImageFallback(imgElement, brand, model) {
+      imgElement.onerror = null;
+      let brandColor = "#0d9488";
+      if (brand === "Apple") brandColor = "#0f172a";
+      if (brand === "Samsung") brandColor = "#1e40af";
+      if (brand === "Xiaomi") brandColor = "#ea580c";
+      if (brand === "Tecno") brandColor = "#0891b2";
+
+      const svgData = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+          <rect width="100%" height="100%" fill="#f1f5f9"/>
+          <g transform="translate(130, 25)">
+            <rect width="140" height="250" rx="20" fill="${brandColor}" />
+            <rect x="5" y="5" width="130" height="240" rx="16" fill="#0f172a" />
+            <circle cx="70" cy="15" r="4" fill="#334155" />
+            <rect x="15" y="30" width="110" height="190" rx="8" fill="#1e293b" opacity="0.8" />
+            <text x="70" y="115" fill="#38bdf8" font-family="sans-serif" font-weight="bold" font-size="12" text-anchor="middle">${brand}</text>
+            <text x="70" y="135" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="11" text-anchor="middle">${model.substring(0, 14)}</text>
+            <rect x="55" y="232" width="30" height="4" rx="2" fill="#64748b" />
+          </g>
+        </svg>
+      `;
+      imgElement.src = "data:image/svg+xml;utf8," + encodeURIComponent(svgData);
+    }
+
+    function renderBrands() {
+      const container = document.getElementById("brandsContainer");
+      container.innerHTML = "";
+
+      brandsList.forEach(b => {
+        const count = b.id === "all" ? products.length : products.filter(p => p.brand.toLowerCase() === b.id.toLowerCase()).length;
+        b.count = count;
+
+        const isAct = currentBrand === b.id;
+        const btn = document.createElement("button");
+        btn.onclick = () => filterByBrand(b.id);
+        btn.className = `brand-btn p-3 rounded-2xl border text-center transition flex flex-col items-center justify-center ${
+          isAct 
+            ? "bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]" 
+            : "bg-white text-slate-700 border-slate-200 hover:border-teal-500 hover:bg-slate-50"
+        }`;
+        btn.innerHTML = `
+          <span class="text-xs font-bold">${b.name}</span>
+          <span class="text-[10px] ${isAct ? 'text-teal-300' : 'text-slate-600'}">${count} modèle${count > 1 ? 's' : ''}</span>
+        `;
+        container.appendChild(btn);
+      });
+    }
+
+    function renderProducts(list) {
+      const grid = document.getElementById("productsGrid");
+      const noResults = document.getElementById("noResults");
+      const countEl = document.getElementById("resultsCount");
+      const heroTotalEl = document.getElementById("heroTotalCount");
+
+      if (heroTotalEl) heroTotalEl.textContent = products.length;
+
+      grid.innerHTML = "";
+
+      if (list.length === 0) {
+        noResults.classList.remove("hidden");
+        countEl.textContent = "0 smartphone disponible";
+        return;
+      }
+
+      noResults.classList.add("hidden");
+      countEl.textContent = `${list.length} smartphone${list.length > 1 ? 's' : ''} disponible${list.length > 1 ? 's' : ''}`;
+
+      list.forEach(item => {
+        const isFav = favorites.includes(item.id);
+        const inCompare = compareList.includes(item.id);
+
+        let conditionBadge = "bg-emerald-100 text-emerald-800";
+        if (item.condition.includes("Reconditionné")) conditionBadge = "bg-blue-100 text-blue-800";
+        if (item.condition.includes("Occasion")) conditionBadge = "bg-amber-100 text-amber-800";
+
+        const whatsappMsg = encodeURIComponent(
+          `Bonjour SmartLink, je suis intéressé par : ${item.brand} ${item.model} (${item.storage}, État : ${item.condition}) au prix de ${formatPrice(item.price)}. Est-il toujours disponible à Lomé ?`
+        );
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
+
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-3xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group";
+
+        card.innerHTML = `
+          <div class="relative aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 overflow-hidden cursor-pointer" onclick="openProductModal('${item.id}')">
+            <img src="${item.image}" alt="${item.model}" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+                 loading="lazy" 
+                 onerror="handleImageFallback(this, '${item.brand}', '${item.model}')" />
+
+            <div class="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
+              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-lg shadow-sm ${conditionBadge}">
+                ${item.condition}
+              </span>
+              ${item.featured ? '<span class="text-[10px] font-extrabold px-2 py-0.5 rounded-lg bg-amber-500 text-white shadow-sm">★ TOP</span>' : ''}
+            </div>
+
+            <button onclick="event.stopPropagation(); toggleFavorite('${item.id}')" 
+                    class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur flex items-center justify-center text-slate-600 hover:text-rose-500 shadow-sm transition active:scale-90 z-10">
+              <i data-lucide="heart" class="w-4 h-4 ${isFav ? 'text-rose-500 fill-rose-500' : ''}"></i>
+            </button>
+
+            <div class="absolute bottom-2.5 right-2.5 bg-slate-900/85 backdrop-blur text-white text-[11px] font-bold px-2 py-0.5 rounded-lg">
+              ${item.storage}
+            </div>
+          </div>
+
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-bold text-teal-600 uppercase tracking-wider mb-1">
+                <span>${item.brand}</span>
+                <span class="text-slate-600 normal-case font-medium">Bat. ${item.batteryHealth || '100%'}</span>
+              </div>
+
+              <h3 class="font-extrabold text-slate-900 text-lg group-hover:text-teal-600 transition leading-snug cursor-pointer" onclick="openProductModal('${item.id}')">
+                ${item.model}
+              </h3>
+
+              <div class="mt-2.5 flex flex-wrap gap-1.5 text-[10px] text-slate-600">
+                <span class="bg-slate-100 px-2 py-0.5 rounded-md font-semibold">RAM ${item.ram || '6 Go'}</span>
+                <span class="bg-slate-100 px-2 py-0.5 rounded-md font-semibold">${item.simType || 'SIM physique'}</span>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100">
+              <div class="flex items-baseline justify-between mb-3">
+                <div>
+                  <span class="text-[10px] text-slate-600 font-medium block">Prix au comptant</span>
+                  <span class="text-xl font-black text-slate-900">${formatPrice(item.price)}</span>
+                </div>
+
+                <button onclick="toggleCompare('${item.id}')" class="text-[11px] font-bold ${inCompare ? 'text-teal-600' : 'text-slate-600 hover:text-slate-700'} flex items-center gap-1">
+                  <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>
+                  <span>${inCompare ? 'Sélectionné' : 'Comparer'}</span>
+                </button>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="openProductModal('${item.id}')" class="flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 py-2.5 rounded-xl text-xs font-bold transition">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                  <span>Détails</span>
+                </button>
+
+                <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-white py-2.5 rounded-xl text-xs font-bold shadow-sm transition active:scale-95">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                  <span>Commander</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    function applyFilters() {
+      const search = document.getElementById("searchInput").value.toLowerCase().trim();
+      const sort = document.getElementById("sortSelect").value;
+      const clearBtn = document.getElementById("clearSearchBtn");
+
+      if (clearBtn) {
+        if (search) clearBtn.classList.remove("hidden");
+        else clearBtn.classList.add("hidden");
+      }
+
+      let result = products.filter(p => {
+        const matchesBrand = (currentBrand === "all" || p.brand.toLowerCase() === currentBrand.toLowerCase());
+        const matchesCondition = (currentCondition === "all" || p.condition.toLowerCase().includes(currentCondition.toLowerCase()));
+        const matchesStorage = (currentStorage === "all" || p.storage.toLowerCase().includes(currentStorage.toLowerCase()));
+        const matchesSearch = (!search || 
+          p.model.toLowerCase().includes(search) || 
+          p.brand.toLowerCase().includes(search) || 
+          p.storage.toLowerCase().includes(search) ||
+          p.condition.toLowerCase().includes(search)
+        );
+
+        return matchesBrand && matchesCondition && matchesStorage && matchesSearch;
+      });
+
+      if (sort === "price-asc") {
+        result.sort((a, b) => a.price - b.price);
+      } else if (sort === "price-desc") {
+        result.sort((a, b) => b.price - a.price);
+      } else if (sort === "brand") {
+        result.sort((a, b) => a.brand.localeCompare(b.brand));
+      } else if (sort === "name") {
+        result.sort((a, b) => a.model.localeCompare(b.model));
+      } else {
+        result.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      }
+
+      renderProducts(result);
+    }
+
+    function clearSearch() {
+      document.getElementById("searchInput").value = "";
+      applyFilters();
+    }
+
+    function filterByBrand(brand) {
+      currentBrand = brand;
+      renderBrands();
+      applyFilters();
+    }
+
+    function filterByCondition(cond) {
+      currentCondition = cond;
+      document.querySelectorAll(".condition-btn").forEach(btn => {
+        if (btn.dataset.condition === cond) {
+          btn.className = "condition-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-white shadow-sm";
+        } else {
+          btn.className = "condition-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200";
+        }
+      });
+      applyFilters();
+    }
+
+    function filterByStorage(st) {
+      currentStorage = st;
+      document.querySelectorAll(".storage-btn").forEach(btn => {
+        if (btn.dataset.storage === st) {
+          btn.className = "storage-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-teal-600 text-white";
+        } else {
+          btn.className = "storage-btn px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-600 hover:bg-slate-200";
+        }
+      });
+      applyFilters();
+    }
+
+    function resetFilters() {
+      document.getElementById("searchInput").value = "";
+      currentBrand = "all";
+      currentCondition = "all";
+      currentStorage = "all";
+      document.getElementById("sortSelect").value = "featured";
+
+      filterByCondition("all");
+      filterByStorage("all");
+      renderBrands();
+      applyFilters();
+      showToast("Filtres réinitialisés");
+    }
+
+    function openProductModal(id) {
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+
+      currentSelectedProduct = p;
+
+      document.getElementById("modalBrandTag").textContent = p.brand;
+      document.getElementById("modalConditionTag").textContent = p.condition;
+      document.getElementById("modalProductTitle").textContent = `${p.brand} ${p.model}`;
+      document.getElementById("modalProductPrice").textContent = formatPrice(p.price);
+
+      const oldPriceEl = document.getElementById("modalProductOldPrice");
+      if (p.oldPrice && p.oldPrice > p.price) {
+        oldPriceEl.textContent = formatPrice(p.oldPrice);
+        oldPriceEl.classList.remove("hidden");
+      } else {
+        oldPriceEl.classList.add("hidden");
+      }
+
+      document.getElementById("modalSellerName").textContent = p.sellerName || "Vendeur Partenaire Vérifié";
+      document.getElementById("modalAvailability").textContent = p.availability || "Disponible immédiatement à Lomé";
+
+      document.getElementById("modalSpecStorage").textContent = p.storage;
+      document.getElementById("modalSpecRam").textContent = p.ram || "6 Go";
+      document.getElementById("modalSpecSim").textContent = p.simType || "SIM physique";
+      document.getElementById("modalSpecBattery").textContent = p.batteryHealth || "100%";
+      document.getElementById("modalSpecOrigin").textContent = p.origin || "Europe / USA";
+      document.getElementById("modalDescription").textContent = p.description || "Appareil vérifié et garanti avec facture.";
+      document.getElementById("modalStorageBadge").textContent = p.storage;
+
+      const imgEl = document.getElementById("modalProductImg");
+      imgEl.src = p.image;
+      imgEl.onerror = () => handleImageFallback(imgEl, p.brand, p.model);
+
+      const whatsappMsg = encodeURIComponent(
+        `Bonjour SmartLink, je souhaite commander : ${p.brand} ${p.model} (${p.storage}, ${p.condition}) au prix de ${formatPrice(p.price)}. Pouvez-vous me confirmer la disponibilité ?`
+      );
+      document.getElementById("modalWhatsAppBtn").href = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
+
+      const modal = document.getElementById("productDetailModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      lucide.createIcons();
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById("productDetailModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function shareCurrentProduct() {
+      if (!currentSelectedProduct) return;
+      const text = `Découvrez le ${currentSelectedProduct.brand} ${currentSelectedProduct.model} (${currentSelectedProduct.storage}, ${currentSelectedProduct.condition}) à ${formatPrice(currentSelectedProduct.price)} sur SmartLink ! Contact WhatsApp : +228 93 48 84 02`;
+      if (navigator.share) {
+        navigator.share({ title: currentSelectedProduct.model, text: text, url: window.location.href });
+      } else {
+        navigator.clipboard.writeText(text);
+        showToast("Lien copié dans le presse-papier !");
+      }
+    }
+
+    function toggleFavorite(id) {
+      const idx = favorites.indexOf(id);
+      if (idx > -1) {
+        favorites.splice(idx, 1);
+        showToast("Retiré des favoris");
+      } else {
+        favorites.push(id);
+        showToast("Ajouté aux favoris !");
+      }
+      localStorage.setItem("smartlink_favs", JSON.stringify(favorites));
+      updateFavBadge();
+      applyFilters();
+    }
+
+    function updateFavBadge() {
+      const badge = document.getElementById("favCountBadge");
+      if (favorites.length > 0) {
+        badge.textContent = favorites.length;
+        badge.classList.remove("hidden");
+      } else {
+        badge.classList.add("hidden");
+      }
+    }
+
+    function toggleFavoritesModal() {
+      const modal = document.getElementById("favoritesModal");
+      const listEl = document.getElementById("favoritesList");
+
+      if (modal.classList.contains("hidden")) {
+        listEl.innerHTML = "";
+        const favProducts = products.filter(p => favorites.includes(p.id));
+
+        if (favProducts.length === 0) {
+          listEl.innerHTML = `
+            <div class="text-center py-8 text-slate-600">
+              <i data-lucide="heart-off" class="w-10 h-10 mx-auto mb-2 text-slate-300"></i>
+              <p class="font-bold text-sm">Vous n'avez aucun smartphone favori</p>
+              <p class="text-xs text-slate-600 mt-1">Cliquez sur le cœur pour en ajouter.</p>
+            </div>
+          `;
+        } else {
+          favProducts.forEach(p => {
+            const item = document.createElement("div");
+            item.className = "flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100 gap-3";
+            item.innerHTML = `
+              <div class="flex items-center gap-3">
+                <img src="${p.image}" class="w-12 h-12 rounded-xl object-cover" onerror="handleImageFallback(this, '${p.brand}', '${p.model}')" />
+                <div>
+                  <h4 class="font-bold text-slate-900 text-xs">${p.brand} ${p.model}</h4>
+                  <span class="text-teal-600 font-extrabold text-xs">${formatPrice(p.price)}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="openProductModal('${p.id}'); toggleFavoritesModal()" class="px-2.5 py-1.5 rounded-lg bg-teal-600 text-white font-bold text-[10px]">Voir</button>
+                <button onclick="toggleFavorite('${p.id}'); toggleFavoritesModal()" class="p-1.5 text-rose-500 hover:bg-rose-50 rounded-lg"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+              </div>
+            `;
+            listEl.appendChild(item);
+          });
+        }
+
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        lucide.createIcons();
+      } else {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+    }
+
+    function toggleCompare(id) {
+      const idx = compareList.indexOf(id);
+      if (idx > -1) {
+        compareList.splice(idx, 1);
+        showToast("Retiré du comparateur");
+      } else {
+        if (compareList.length >= 3) {
+          showToast("Maximum 3 smartphones à comparer");
+          return;
+        }
+        compareList.push(id);
+        showToast("Ajouté au comparateur !");
+      }
+      document.getElementById("compareCount").textContent = compareList.length;
+      applyFilters();
+    }
+
+    function openCompareModal() {
+      if (compareList.length === 0) {
+        showToast("Sélectionnez d'abord des smartphones en cliquant sur 'Comparer'");
+        return;
+      }
+
+      const modal = document.getElementById("compareModal");
+      const content = document.getElementById("compareContent");
+      const compProducts = products.filter(p => compareList.includes(p.id));
+
+      content.innerHTML = `
+        <div class="grid grid-cols-${compProducts.length} gap-4">
+          ${compProducts.map(p => `
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs space-y-3">
+              <img src="${p.image}" class="aspect-square rounded-xl object-cover w-full mb-2" onerror="handleImageFallback(this, '${p.brand}', '${p.model}')" />
+              <div class="text-center">
+                <span class="text-[10px] font-bold text-teal-600 uppercase">${p.brand}</span>
+                <h4 class="font-extrabold text-slate-900 text-sm">${p.model}</h4>
+                <p class="font-black text-slate-900 text-base mt-1">${formatPrice(p.price)}</p>
+              </div>
+              <div class="space-y-1.5 pt-2 border-t border-slate-200">
+                <div class="flex justify-between"><span>État :</span> <strong class="text-slate-800">${p.condition}</strong></div>
+                <div class="flex justify-between"><span>Stockage :</span> <strong class="text-slate-800">${p.storage}</strong></div>
+                <div class="flex justify-between"><span>RAM :</span> <strong class="text-slate-800">${p.ram || '6 Go'}</strong></div>
+                <div class="flex justify-between"><span>Batterie :</span> <strong class="text-slate-800">${p.batteryHealth || '100%'}</strong></div>
+              </div>
+              <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour SmartLink, je souhaite commander : ' + p.brand + ' ' + p.model)}" target="_blank" class="w-full mt-2 bg-[#25D366] text-white py-2 rounded-xl font-bold flex items-center justify-center gap-1">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                Commander
+              </a>
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      lucide.createIcons();
+    }
+
+    function closeCompareModal() {
+      const modal = document.getElementById("compareModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function openAdminModal() {
+      const modal = document.getElementById("adminModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeAdminModal() {
+      const modal = document.getElementById("adminModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function handleAddNewProduct(e) {
+      e.preventDefault();
+      const model = document.getElementById("newModel").value.trim();
+      const brand = document.getElementById("newBrand").value;
+      const price = parseFloat(document.getElementById("newPrice").value);
+      const storage = document.getElementById("newStorage").value;
+      const condition = document.getElementById("newCondition").value;
+      const image = document.getElementById("newImage").value.trim() || "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&fit=crop&q=80";
+      const desc = document.getElementById("newDescription").value.trim() || "Smartphone vérifié par SmartLink.";
+
+      const newProd = {
+        id: "prod-" + Date.now(),
+        model: model,
+        brand: brand,
+        price: price,
+        storage: storage,
+        ram: "6 Go",
+        condition: condition,
+        simType: "Double SIM",
+        batteryHealth: "100%",
+        featured: true,
+        image: image,
+        description: desc,
+        sellerName: "Vendeur Partenaire SmartLink",
+        availability: "En stock (Lomé)"
+      };
+
+      products.unshift(newProd);
+      localStorage.setItem("smartlink_catalog_v2", JSON.stringify(products));
+
+      closeAdminModal();
+      document.getElementById("addProductForm").reset();
+      renderBrands();
+      applyFilters();
+      showToast("Smartphone ajouté avec succès !");
+    }
+
+    function sendCustomWhatsApp() {
+      const name = document.getElementById("contactName").value.trim();
+      const msg = document.getElementById("contactMessage").value.trim();
+      
+      let finalMsg = "Bonjour SmartLink, ";
+      if (name) finalMsg += `je suis ${name}. `;
+      if (msg) finalMsg += msg;
+      else finalMsg += "je souhaite avoir des informations sur vos smartphones disponibles à Lomé.";
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalMsg)}`, "_blank");
+    }
+
+    function showToast(text) {
+      const t = document.getElementById("toast");
+      const m = document.getElementById("toastMsg");
+      m.textContent = text;
+      t.classList.remove("opacity-0", "pointer-events-none");
+      setTimeout(() => {
+        t.classList.add("opacity-0", "pointer-events-none");
+      }, 3000);
+    }
+
+    window.onclick = function(event) {
+      const prodModal = document.getElementById("productDetailModal");
+      const compModal = document.getElementById("compareModal");
+      const favModal = document.getElementById("favoritesModal");
+      const admModal = document.getElementById("adminModal");
+
+      if (event.target === prodModal) closeProductModal();
+      if (event.target === compModal) closeCompareModal();
+      if (event.target === favModal) toggleFavoritesModal();
+      if (event.target === admModal) closeAdminModal();
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderBrands();
+      updateFavBadge();
+      applyFilters();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
